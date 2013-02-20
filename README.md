@@ -4,6 +4,29 @@ Testing repo
 GitHub Flavored Markdown
 ================================
 
+
+~~~~~ ruby
+# create a custom renderer that allows highlighting of code blocks
+class HTMLwithAlbino < Redcarpet::Render::HTML
+  def block_code(code, language)
+    Albino.safe_colorize(code, language)
+  end
+end
+
+markdown = Redcarpet::Markdown.new(HTMLwithAlbino, :fenced_code_blocks => true)
+~~~~~
+
+But new renderers can also be created from scratch (see `lib/render_man.rb` for
+an example implementation of a Manpage renderer)
+
+~~~~~~ ruby
+class ManPage < Redcarpet::Render::Base
+    # you get the drill -- keep going from here
+end
+~~~~~
+
+
+
 *View the [source of this content](http://github.github.com/github-flavored-markdown/sample_content.html).*
 
 Let's get the whole "linebreak" thing out of the way. The next paragraph contains two phrases separated by a single newline character:
