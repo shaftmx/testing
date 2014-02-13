@@ -1,6 +1,3 @@
 [submodule "test-submod"]
 	path = test-submod
 	url = https://github.com/shaftmx/test-submod
-[submodule "numeter"]
-	path = numeter
-	url = https://github.com/enovance/numeter
